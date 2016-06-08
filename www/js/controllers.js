@@ -129,12 +129,16 @@ angular.module('mysoundboard.controllers', [])
 			return;
 		}
 		var media = new Media($scope.sound.file, function(e) {
-			media.release();
+			/*media.release();*/
+            console.dir(e);
+            
 		}, function(err) {
 			navigator.notification.alert("Media Error", err);
 		}, function(status) {
 			navigator.notification.alert("Media Status", err);
 		});
-		media.play();
+        media.play();
+        console.log('Playing recorded audio');
+		
 	}
 });
