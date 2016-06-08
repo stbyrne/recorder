@@ -125,13 +125,15 @@ angular.module('mysoundboard.controllers', [])
 	
 	$scope.play = function() {
 		if(!$scope.sound.file) {
-			navigator.notification.alert("Record a sound first.", null, "Error");
+			navigator.notification.alert("Record a sound first.", null, "Oops, you havent recorded anything yet");
 			return;
 		}
 		var media = new Media($scope.sound.file, function(e) {
 			media.release();
 		}, function(err) {
-			console.log("media err", err);
+			navigator.notification.alert("Media Error", err);
+		}, function(status) {
+			navigator.notification.alert("Media Status", err);
 		});
 		media.play();
 	}
