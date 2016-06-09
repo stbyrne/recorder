@@ -94,7 +94,7 @@ angular.module('mysoundboard.controllers', [])
 					});
 					
 				}, function(e) {
-					console.log('error in coipy');console.dir(e);
+					console.log('error in copy');console.dir(e);
 				});					
 			}, function(e) {
 				console.log("error in inner bullcrap");
