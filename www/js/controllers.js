@@ -80,7 +80,7 @@ angular.module('mysoundboard.controllers', [])
 		window.resolveLocalFileSystemURL(loc, function(d) {
 			window.resolveLocalFileSystemURL($scope.sound.file, function(fe) {
 				fe.copyTo(d, filename, function(e) {
-					console.log('success inc opy');
+					console.log('copy success');
 					console.dir(e);
 					$scope.sound.file = e.nativeURL;
 					$scope.sound.path = e.fullPath;
@@ -90,6 +90,7 @@ angular.module('mysoundboard.controllers', [])
 						    disableBack: true
 						});
 						$state.go("home");
+    
 					});
 					
 				}, function(e) {
