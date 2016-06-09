@@ -37,7 +37,8 @@ angular.module('mysoundboard.services', [])
 			*/
 			var mediaUrl = sound.file;
 			if(device.platform.indexOf("iOS") >= 0) {
-				mediaUrl = "../Library/NoCloud/" + mediaUrl.split("/").pop();
+				/*mediaUrl = "../Library/NoCloud/" + mediaUrl.split("/").pop();*/
+				mediaUrl = mediaUrl.replace('file://','');
                 console.log("Recording is copied here: " + mediaUrl);
 			}
 			var media = new Media(mediaUrl, function(e) {
