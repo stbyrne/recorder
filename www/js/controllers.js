@@ -78,7 +78,16 @@ angular.module('mysoundboard.controllers', [])
 		console.log("new filename is "+filename);
 
 		window.resolveLocalFileSystemURL(loc, function(d) {
-			window.resolveLocalFileSystemURL($scope.sound.file, function(fe) {
+            
+            console.dir(d);
+            
+            window.resolveLocalFileSystemURL($scope.sound.file, function(fe) {
+            
+            ////////////////////////////////////////////////////////////////////
+            
+			/*window.resolveLocalFileSystemURL($scope.sound.file, function(fe) {
+                
+                
 				fe.copyTo(d, filename, function(e) {
 					console.log('copy success');
 					console.dir(e);
@@ -99,15 +108,51 @@ angular.module('mysoundboard.controllers', [])
 			}, function(e) {
 				console.log("error in inner bullcrap");
 				console.dir(e);
-			});
+			});*/
+            
+            /////////////////////////////////////////////////////////////////////
+            
+            window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onSuccess, null);
+
+                function onSuccess(fileSystem) {
+                    var documentsPath = fileSystem.root;
+                    console.dir('Document Path: ' + documentsPath);
+                    console.dir('Resolved Location: ' + fe);
+                    fe.copyTo(documentsPath, filename,
+                    function(e){
+                        console.log('copy success');
+                        console.dir(e);
+                        /*$scope.sound.file = e.nativeURL;
+                        $scope.sound.path = e.fullPath;*/
+
+                        Sounds.save($scope.sound).then(function() {
+                            $ionicHistory.nextViewOptions({
+                                disableBack: true
+                            });
+                            $state.go("home");
+
+                        });
+                        
+                    }, function(e) {
+                        console.log('error in copy');console.dir(e);
+                    					
+                    }, function(e) {
+                        console.log("error in inner bullcrap");
+                        console.dir(e);
+                    });
+                    
+                }
 			
 			
 		}, function(e) {
 			console.log('error in fs');console.dir(e);
 		});
-
-		
-	}
+            
+        });
+    }
+        
+   
+    
 
 	var captureError = function(e) {
 		console.log('captureError' ,e);
@@ -130,7 +175,7 @@ angular.module('mysoundboard.controllers', [])
 			return;
 		}
 		var media = new Media($scope.sound.file, function(e) {
-			/*media.release();*/
+			media.release();
             console.dir(e);
             
 		}, function(err) {
