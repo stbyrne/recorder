@@ -1,29 +1,53 @@
 <ion-view view-title="Learnosity Recording">
 
-  <ion-content class="padding">
+    <ion-content class="padding">
 
-    <div ng-if="sounds.length > 0">
-			<ion-list show-delete="false" can-swipe="true">
-				<ion-item ng-repeat="sound in sounds" ng-click="play($index)">
-					{{sound.name}}
-					
-					<ion-option-button class="button-assertive" ng-click="delete($index)">
-					Delete
-					</ion-option-button>		
+        <!--<div ng-if="sounds.length > 0">-->
+        <div class="row">
+            <div class="col">
+                <ion-list show-delete="false" can-swipe="true">
+                    <ion-item ng-repeat="sound in sounds" ng-click="play($index)">
+                        {{sound.name}}
 
-				</ion-item>
-			</ion-list>
-    </div>
-	<div ng-if="sounds.length < 1">
-		<p>
-			Record your answer and submit.
-		</p>
-	</div>
+                        <ion-option-button class="button-assertive" ng-click="delete($index)">
+                            Delete
+                        </ion-option-button>
 
-    <a href="#/new" class="button button-balanced button-block" ng-show="cordova.loaded">
-      Record New Sound
-    </a>
-		 
-  </ion-content>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </div>
+        <div ng-if="sounds.length < 1">
+            <h2 class="learnosity-question-title">
+            Question:
+        </h2>
+            <p class="learnosity-question-body">
+                {{question.stimilus}}
+            </p>
+            <p class="learnosity-question-instruction">
+                Record your answer and submit.
+            </p>
+        </div>
+        <div class="row" ng-show="cordova.loaded && sounds.length < 1">
+            <div class="col">
+                <a href="#/new" class="prep-record button button-block icon-left ion-android-microphone">Record Your Answer
+        </a>
+            </div>
+        </div>
+
+        <div class="row" ng-if="sounds.length > 0">
+            <div class="col">
+                <a href="#/new" class="prep-record button button-block icon-left ion-android-microphone">
+      Change Your Answer
+                </a>
+            </div>
+        </div>
+        <div class="row" ng-if="sounds.length > 0">
+            <div class="col">
+                <button class="ans-save button button-block icon-left ion-ios-upload-outline" ng-click="confirm()">Submit Answer</button>
+            </div>
+        </div>
+
+    </ion-content>
 
 </ion-view>

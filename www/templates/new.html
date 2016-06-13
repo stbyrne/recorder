@@ -1,29 +1,43 @@
 <ion-view view-title="Record Your Answer">
-	<ion-content class="padding">
+    <ion-content class="padding">
 
-		<div class="row">
-			<div class="col">
+        <div>
+            <p class="learnosity-question-body">
+                {{question.stimilus}}
+            </p>
 
-				<label class="item item-input">
-					<input type="text" ng-model="sound.name" placeholder="Name">
-				</label>
-			</div>
-		</div>				
+        </div>
 
-		<div class="row">
-			<div class="col">
-				<button class="button button-block button-balanced icon-left ion-android-microphone" ng-click="record()">Record</button>
-			</div>
-			<div class="col">
-				<button class="button button-block button-balanced icon-left ion-play" ng-click="play()">Play</button>
-			</div>
-		</div>	
+        <div class="row" ng-if="sound.file">
+            <div class="col">
 
-		<div class="row">
-			<div class="col">
-				<button class="button button-block button-positive" ng-click="saveSound()">Save</button>
-			</div>
-		</div>
-		
-  </ion-content>
+                <label class="item item-input">
+                    <input type="text" ng-model="sound.name" placeholder="Name">
+                </label>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="ans-record button button-block icon-left ion-android-microphone" ng-click="record()">Record</button>
+            </div>
+        </div>
+        <div class="row" ng-if="sound.file">
+            <div class="col">
+                <ion-spinner icon="lines" class="record-indicator spinner"></ion-spinner>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="ans-play button button-block icon-left ion-play" ng-click="play()">Play</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <button class="ans-save button button-block button-positive icon-left ion-ios-upload-outline" ng-click="saveSound()">Save</button>
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>

@@ -1,4 +1,4 @@
-angular.module('mysoundboard.services', [])
+angular.module('recorder.services', [])
 
 .factory('Sounds', function($q) {
 
@@ -7,7 +7,7 @@ angular.module('mysoundboard.services', [])
 		var deferred = $q.defer();
 		getSounds().then(function(sounds) {
 			sounds.splice(x,1);
-			localStorage.mysoundboard = JSON.stringify(sounds);
+			localStorage.recorder = JSON.stringify(sounds);
 			deferred.resolve();
 		});
 	
@@ -19,8 +19,8 @@ angular.module('mysoundboard.services', [])
 		var deferred = $q.defer();
 		var sounds = [];
 		
-		if(localStorage.mysoundboard) {
-			sounds = JSON.parse(localStorage.mysoundboard);
+		if(localStorage.recorder) {
+			sounds = JSON.parse(localStorage.recorder);
 		}
 		deferred.resolve(sounds);
 	
@@ -56,7 +56,7 @@ angular.module('mysoundboard.services', [])
 		var deferred = $q.defer();
 		getSounds().then(function(sounds) {
 			sounds.push(s);
-			localStorage.mysoundboard = JSON.stringify(sounds);
+			localStorage.recorder = JSON.stringify(sounds);
 			deferred.resolve();
 		});
 	

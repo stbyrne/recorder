@@ -1,1 +1,25 @@
 /* Empty. Add your own CSS if you like */
+
+.learnosity-question-instruction{
+    color: #a3a3a3;
+}
+
+.ans-record, ans-play{
+    
+}
+.ion-android-microphone:before{
+    color: #ff1d00;
+}
+.ion-play:before{
+    color: #0080ff;
+}
+/*.spinner.record-indicator{
+    stroke: #ff9300;
+    fill: #5c5c5c;
+    
+}*/
+.spinner.record-indicator svg {
+    margin: 0 30%;
+    width: 40%;
+    height: auto;
+}

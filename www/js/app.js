@@ -1,4 +1,4 @@
-angular.module('mysoundboard', ['ionic', 'mysoundboard.controllers', 'mysoundboard.services'])
+angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

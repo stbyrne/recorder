@@ -1,6 +1,12 @@
-angular.module('mysoundboard.controllers', [])
+angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, Sounds, $ionicPlatform) {
+.controller('HomeCtrl', function($scope, $rootScope, Sounds, $ionicPlatform) {
+    
+    $rootScope.question = {
+        
+        'stimilus': 'This is a placeholder for the binded Learnosity question.',
+        'type': 'question'
+                      };
   	
 	var getSounds = function() {
 		console.log('getSounds called');
@@ -34,6 +40,10 @@ angular.module('mysoundboard.controllers', [])
 				});
 			});
 		});
+	}
+    
+    $scope.confirm = function() {
+		navigator.notification.confirm('Are you sure you want to submit?', null, 'Confim Submit', ['Confirm', 'Cancel']);	
 	}
 	
 	$scope.cordova = {loaded:false};
