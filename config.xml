@@ -44,7 +44,8 @@
     <plugin name="cordova-plugin-media-capture" spec="~1.3.0" />
     <plugin name="cordova-plugin-media" spec="~2.2.0" />
     <plugin name="cordova-plugin-dialogs" spec="~1.2.1" />
-    <url-scheme name="hmhiosrecorder" role="None">
-      <scheme>pgbr</scheme>
-    </url-scheme>
+    <plugin name="cordova-plugin-customurlscheme" source="npm">
+        <param name="URL_SCHEME" value="hmhiosrecorder" />
+    </plugin>
+    
 </widget>
