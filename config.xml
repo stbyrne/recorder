@@ -49,7 +49,7 @@
     </plugin>
     
     <platform name="ios">
-        <icon src="res/ios/icon.png" width="57" height="57" />
+        <icon src="icons/ios/icon.png" width="57" height="57" />
         
     </platform>
     
