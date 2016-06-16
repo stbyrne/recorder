@@ -2,6 +2,7 @@
     "jscodehints.detectedExclusions": [
         "/Users/byrnes/GitHub/recorder/www/lib/ionic/js/ionic.min.js",
         "/Users/byrnes/GitHub/recorder/www/lib/ionic/js/ionic.js",
-        "/Users/byrnes/GitHub/recorder/www/js/app.js"
+        "/Users/byrnes/GitHub/recorder/www/js/app.js",
+        "/Users/stuartbyrne/Development/Github/recorder/www/js/controllers.js"
     ]
 }

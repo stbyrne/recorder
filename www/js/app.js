@@ -1,3 +1,13 @@
+var handleOpenURL = function(url) {
+    
+    var stimulus = url.split('='),
+        question = stimulus[1];
+    
+    navigator.notification.alert(question, null, "Question");
+    
+}; 
+        
+
 angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 
 .run(function($ionicPlatform) {
