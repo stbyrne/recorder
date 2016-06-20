@@ -5,10 +5,17 @@ var question = {
 var handleOpenURL = function(url) {
     
     var stimulus = url.split('='),
-        tempQuestion = stimulus[1],
-    parsedQuestion = tempQuestion.replace('_',' ');
+        tempQuestion = stimulus[1];
+
+var i = 0, strLength = tempQuestion.length;
+ 
+for(i; i < strLength; i++) {
+ 
+ str = str.replace(" ", "_");
+ 
+}
     
-    question.stimulus = parsedQuestion;
+    question.stimulus = str;
     
 }; 
         
