@@ -7,15 +7,13 @@ var handleOpenURL = function(url) {
     var stimulus = url.split('='),
         tempQuestion = stimulus[1];
 
-var i = 0, strLength = tempQuestion.length;
- 
-for(i; i < strLength; i++) {
- 
- str = str.replace("_", " ");
- 
-}
+tempQuestion.forEach(function(str){
+
+str = str.replace("_"," ");
+
+});
     
-    question.stimulus = str;
+    question.stimulus = tempQuestion;
     
 }; 
         
