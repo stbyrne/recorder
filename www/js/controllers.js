@@ -1,10 +1,12 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $rootScope, Sounds, $ionicPlatform, $window) {
+.controller('HomeCtrl', function($scope, $state,$rootScope, Sounds, $ionicPlatform, $window) {
     
     $scope.question = $window.question;
         
     $rootScope.question = $scope.question;
+
+    $state.go('home');
   	
 	var getSounds = function() {
 		console.log('getSounds called');
