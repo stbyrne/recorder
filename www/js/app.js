@@ -1,9 +1,14 @@
+var question = {
+    'stimulus': ''
+};
+
 var handleOpenURL = function(url) {
     
     var stimulus = url.split('='),
-        question = stimulus[1];
+        tempQuestion = stimulus[1];
+    tempQuestion.replace('_',' ');
     
-    navigator.notification.alert(question, null, "Question");
+    question.stimulus = tempQuestion;
     
 }; 
         

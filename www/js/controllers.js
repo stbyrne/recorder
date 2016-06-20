@@ -1,12 +1,10 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $rootScope, Sounds, $ionicPlatform) {
+.controller('HomeCtrl', function($scope, $rootScope, Sounds, $ionicPlatform, $window) {
     
-    $rootScope.question = {
+    $scope.question = $window.question;
         
-        'stimilus': 'This is a placeholder for the binded Learnosity question.',
-        'type': 'question'
-                      };
+    $rootScope.question = $scope.question;
   	
 	var getSounds = function() {
 		console.log('getSounds called');
