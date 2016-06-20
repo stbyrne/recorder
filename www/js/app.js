@@ -5,10 +5,10 @@ var question = {
 var handleOpenURL = function(url) {
     
     var stimulus = url.split('='),
-        tempQuestion = stimulus[1];
-    tempQuestion.replace('_',' ');
+        tempQuestion = stimulus[1],
+    parsedQuestion = tempQuestion.replace('_',' ');
     
-    question.stimulus = tempQuestion;
+    question.stimulus = parsedQuestion;
     
 }; 
         
