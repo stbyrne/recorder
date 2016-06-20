@@ -11,7 +11,7 @@ var i = 0, strLength = tempQuestion.length;
  
 for(i; i < strLength; i++) {
  
- str = str.replace(" ", "_");
+ str = str.replace("_", " ");
  
 }
     
