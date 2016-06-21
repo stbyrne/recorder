@@ -6,11 +6,11 @@ angular.module('recorder.controllers', [])
         
     $rootScope.question = $scope.question;
 
-    $state.transitionTo($state.current, $stateParams, {
+    /*$state.transitionTo($state.current, $stateParams, {
     reload: true,
     inherit: false,
     notify: true
-});
+});*/
   	
 	var getSounds = function() {
 		console.log('getSounds called');
