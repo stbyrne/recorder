@@ -6,6 +6,12 @@ angular.module('recorder.controllers', [])
         
     $rootScope.question = $scope.question;
 
+var getQuestion = function(){
+
+    return $scope.question;
+
+}
+
     /*$state.transitionTo($state.current, $stateParams, {
     reload: true,
     inherit: false,
