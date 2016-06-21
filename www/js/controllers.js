@@ -1,6 +1,6 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window) {
+.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window, $stateParams) {
     
     $scope.question = $window.question;
         
