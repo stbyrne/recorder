@@ -1,57 +1,56 @@
-//Ini
-
 var question = {
-    'stimulus': 'Question_should_appear_here!'
+    'stimulus': ''
 };
 
+var handleOpenURL = function(url) {
+    
+    var stimulus = url.split('='),
+        tempQuestion = stimulus[1];
 
-var handleOpenURL = function (url) {
+tempQuestion.forEach(function(str){
 
-    var holder = url.split("="),
-        strArray = holder[1].split("_"),
-        le = strArray.length;
+str = str.replace("_"," ");
 
-    if (le > 1) {
-        tempQuestion = strArray.slice(0, le).join(" ");
-        question.stimulus = tempQuestion;
-    }
-
-};
-
+});
+    
+    question.stimulus = tempQuestion;
+    
+}; 
+        
 
 angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 
-.run(function ($ionicPlatform) {
-    $ionicPlatform.ready(function () {
-        if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
-            cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-            cordova.plugins.Keyboard.disableScroll(true);
+.run(function($ionicPlatform) {
+  $ionicPlatform.ready(function() {
+    if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.disableScroll(true);
 
-        }
-        if (window.StatusBar) {
-            // org.apache.cordova.statusbar required
-            StatusBar.styleLightContent();
-        }
-    });
+    }
+    if (window.StatusBar) {
+      // org.apache.cordova.statusbar required
+      StatusBar.styleLightContent();
+    }
+  });
 })
 
-.config(function ($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider) {
 
-    $stateProvider
+  $stateProvider
 
-        .state('home', {
-            url: '/home',
-            controller: 'HomeCtrl',
-            templateUrl: 'templates/home.html'
-        })
-        .state('new', {
-            url: '/new',
-            controller: 'RecordCtrl',
-            templateUrl: 'templates/new.html'
-        });
+  .state('home', {
+    url: '/home',
+    controller: 'HomeCtrl',
+    templateUrl: 'templates/home.html'
+  })
+	.state('new', {
+		url:'/new',
+		controller: 'RecordCtrl',
+		templateUrl: 'templates/new.html'
+	});
 
 
-    // if none of the above states are matched, use this as the fallback
-    $urlRouterProvider.otherwise('/home');
+  // if none of the above states are matched, use this as the fallback
+  $urlRouterProvider.otherwise('/home');
 
 });
