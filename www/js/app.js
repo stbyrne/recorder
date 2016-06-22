@@ -1,19 +1,17 @@
 var question = {
-    'stimulus': ''
+    'stimulus': 'Question'
 };
 
 var handleOpenURL = function(url) {
     
-    var stimulus = url.split('='),
-        tempQuestion = stimulus[1];
+var holder = url.split("="),
+        strArray = holder[1].split("_"),
+        le = strArray.length;
 
-tempQuestion.forEach(function(str){
-
-str = str.replace("_"," ");
-
-});
-    
-    question.stimulus = tempQuestion;
+if (le > 1) {
+        tempQuestion = strArray.slice(0, le).join(" ");
+        question.stimulus = tempQuestion;
+    }
     
 }; 
         
