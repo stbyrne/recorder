@@ -1,7 +1,11 @@
 angular.module('recorder.controllers', [])
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 .controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window, $stateParams) {
+=======
+.controller('HomeCtrl', function($scope, $state,$rootScope, Sounds, $ionicPlatform, $window) {
+>>>>>>> parent of 24c7709... commit_work_31
 =======
 .controller('HomeCtrl', function($scope, $state,$rootScope, Sounds, $ionicPlatform, $window) {
 >>>>>>> parent of 24c7709... commit_work_31
