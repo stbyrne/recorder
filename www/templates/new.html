@@ -22,9 +22,10 @@
                 <button class="ans-record button button-block icon-left ion-android-microphone" ng-click="record()">Record</button>
             </div>
         </div>
-        <div class="row" ng-if="sound.file">
+        <!-- <div class="row" ng-show="sound.file" ng-init="Display()"> -->
+        <div class="row" ng-init="Display()">
             <div class="col">
-                <ion-spinner icon="lines" class="record-indicator spinner"></ion-spinner>
+                <canvas id="view1"></canvas>
             </div>
         </div>
         <div class="row">

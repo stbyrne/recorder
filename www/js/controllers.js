@@ -1,14 +1,9 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $state,$rootScope, Sounds, $ionicPlatform, $window) {
+.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window) {
     
     $rootScope.question = $window.question;
 
-    /*$state.transitionTo($state.current, $stateParams, {
-    reload: true,
-    inherit: false,
-    notify: true
-});*/
   	
 	var getSounds = function() {
 		console.log('getSounds called');
@@ -59,6 +54,7 @@ angular.module('recorder.controllers', [])
 .controller('RecordCtrl', function($scope, Sounds, $state, $ionicHistory) {
   
 	$scope.sound = {name:""};
+
 	
 	$scope.saveSound = function() {
 		console.log('trying to save '+$scope.sound.name);
