@@ -8,11 +8,11 @@
 
         </div>
 
-        <div class="row" ng-if="sound.file">
+        <div class="row" ng-show="sound.file">
             <div class="col">
 
                 <label class="item item-input">
-                    <input type="text" ng-model="sound.name" placeholder="Name">
+                    <input type="text" ng-model="sound.name" placeholder="Name Your Recording">
                 </label>
             </div>
         </div>
@@ -22,12 +22,11 @@
                 <button class="ans-record button button-block icon-left ion-android-microphone" ng-click="record()">Record</button>
             </div>
         </div>
-        <!-- <div class="row" ng-show="sound.file" ng-init="Display()"> -->
-        <div class="row" ng-init="Display()">
+         <!--<div class="row" ng-show="sound.file"> 
             <div class="col">
                 <canvas id="view1"></canvas>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="col">
                 <button class="ans-play button button-block icon-left ion-play" ng-click="play()">Play</button>

@@ -69,6 +69,11 @@ angular.module('recorder.controllers', [])
 			navigator.notification.alert("Record a sound first.", null, "Error");
 			return;			
 		}
+        
+        if($scope.sound.file) {
+			navigator.notification.confirm('Previous answer will be updated with this recording.', delete(0), 'Confirm Update', ['Confirm', 'Cancel']);
+            return;
+		}
 		
 		/*
 		begin the copy to persist location
@@ -158,9 +163,6 @@ angular.module('recorder.controllers', [])
             
         });
     }
-        
-   
-    
 
 	var captureError = function(e) {
 		console.log('captureError' ,e);
@@ -170,6 +172,7 @@ angular.module('recorder.controllers', [])
 		console.log('captureSuccess');console.dir(e);
 		$scope.sound.file = e[0].localURL;
 		$scope.sound.filePath = e[0].fullPath;
+        $state.go($state.current, {}, {reload: true});
 	}
 	
 	$scope.record = function() {

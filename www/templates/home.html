@@ -29,7 +29,7 @@
             </p>
         </div>
         <!-- <div class="row" ng-show="cordova.loaded && sounds.length < 1"> -->
-        <div class="row">
+        <div class="row" ng-if="sounds.length < 1">
             <div class="col">
                 <a href="#/new" class="prep-record button button-block icon-left ion-android-microphone">Record Your Answer
         </a>
