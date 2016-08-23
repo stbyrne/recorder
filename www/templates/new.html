@@ -29,13 +29,13 @@
         </div>-->
         <div class="row">
             <div class="col">
-                <button class="ans-play button button-block icon-left ion-play" ng-click="play()">Play</button>
+                <button class="ans-play button button-block icon-left ion-play" ng-disabled="!sound.file" ng-click="play()">Play</button>
             </div>
         </div>
 
         <div class="row">
             <div class="col">
-                <button class="ans-save button button-block button-positive icon-left ion-ios-upload-outline" ng-click="saveSound()">Save</button>
+                <button class="ans-save button button-block button-positive icon-left ion-ios-upload-outline" ng-disabled="!sound.file" ng-click="saveSound()">Save</button>
             </div>
         </div>
 

@@ -2,9 +2,9 @@ angular.module('recorder.controllers', [])
 
 .controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window) {
     
-    $rootScope.question = $window.question;
-
-  	
+    
+    
+    
 	var getSounds = function() {
 		console.log('getSounds called');
 		Sounds.get().then(function(sounds) {
@@ -70,10 +70,10 @@ angular.module('recorder.controllers', [])
 			return;			
 		}
         
-        if($scope.sound.file) {
+        /*if($scope.sound.file) {
 			navigator.notification.confirm('Previous answer will be updated with this recording.', delete(0), 'Confirm Update', ['Confirm', 'Cancel']);
             return;
-		}
+		}*/
 		
 		/*
 		begin the copy to persist location
@@ -199,3 +199,20 @@ angular.module('recorder.controllers', [])
 		
 	}
 });
+
+/*
+var question = {
+        'stimulus': 'How_long_is_a_piece_of_string?'
+    };
+*/
+
+
+
+
+/*function handleOpenURL(url) {
+
+    var body = document.getElementsByTagName("body")[0];
+    var homeController = angular.element(body).scope();
+    homeController.updateQuestion(url);
+
+};*/

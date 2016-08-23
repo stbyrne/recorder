@@ -1,20 +1,20 @@
-var question = {
-    'stimulus': 'Question'
-};
-
 var handleOpenURL = function(url) {
-    
-var holder = url.split("="),
-        strArray = holder[1].split("_"),
-        le = strArray.length;
 
-if (le > 1) {
+    console.log("App Launched Via Custom URL");
+
+    var holder = url.split("="),
+         strArray = holder[1].split("_"),
+         le = strArray.length;
+
+    console.log(strArray);
+
+    if (le > 1) {
         tempQuestion = strArray.slice(0, le).join(" ");
-        question.stimulus = tempQuestion;
+        window.localStorage['question'] = tempQuestion;
+        console.log(window.localStorage['question']);
     }
-    
-}; 
-        
+}
+
 
 angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 

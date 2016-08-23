@@ -111,4 +111,10 @@ angular.module('recorder.services', [])
 	/*window.addEventListener('load', initAudio );*/
 
 
-});
+})
+/*.factory('Question', function(){
+         
+        
+    
+    
+})*/;
