@@ -11,7 +11,7 @@ var handleOpenURL = function(url) {
     if (le > 1) {
         tempQuestion = strArray.slice(0, le).join(" ");
         window.localStorage['question'] = tempQuestion;
-        console.log(window.localStorage['question']);
+        console.log("Local Storage: " + window.localStorage['question']);
     }
 }
 
