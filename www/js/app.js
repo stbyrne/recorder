@@ -1,29 +1,9 @@
-var handleOpenURL = function(url) {
-
-    console.log("App Launched Via Custom URL");
-    window.localStorage.removeItem('question');
-    console.log("Local storage cleared");
-
-    var holder = url.split("="),
-         strArray = holder[1].split("_"),
-         le = strArray.length;
-
-    console.log(strArray);
-
-    if (le > 1) {
-        tempQuestion = strArray.slice(0, le).join(" ");
-        console.log("Temp: " + tempQuestion);
-        window.localStorage.setItem('question', tempQuestion);
-        console.log(window.localStorage.getItem('question'));
-    }
-}
-
-/*window.localStorage.setItem('question', 'Question Placeholder')*/
 
 angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
+      cordova.addStickyDocumentEventHandler('handleOpenURL');
     if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       cordova.plugins.Keyboard.disableScroll(true);
@@ -35,8 +15,6 @@ angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'
     }
   });
 })
-
-
 
 .config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
     
@@ -58,3 +36,30 @@ angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'
   $urlRouterProvider.otherwise('/home');
 
 });
+
+var question = 't loading...';
+
+console.log(question);
+
+var handleOpenURL = function(url) {
+
+    console.log("App Launched Via Custom URL");
+
+    var holder = url.split("="),
+         strArray = holder[1].split("_"),
+         le = strArray.length;
+
+    console.log(strArray);
+
+    if (le > 1) {
+        tempQuestion = strArray.slice(0, le).join(" ");
+        console.log("Temp: " + tempQuestion);
+        /*window.localStorage.setItem('question', tempQuestion);
+        console.log(window.localStorage.getItem('question'));*/
+        question = tempQuestion;
+        console.log(question);
+    }
+}
+
+
+

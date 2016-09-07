@@ -1,5 +1,18 @@
 angular.module('recorder.services', [])
 
+.service('getQuestion', function () {
+        var property = 'First';
+
+        return {
+            getProperty: function () {
+                return property;
+            },
+            setProperty: function(value) {
+                property = value;
+            }
+        };
+    })
+
 .factory('Sounds', function($q) {
 
 	var deleteSound = function(x) {

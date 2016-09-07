@@ -1,10 +1,14 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform) {
+.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $timeout) {
     
+    $scope.question = question;
+    console.log('Loading question...');
     
-    $rootScope.question = 'Loading question...';
-    
+    $timeout(function(){
+        console.log("From HomeController: " + window.localStorage[question]);
+        $scope.question = window.localStorage[question];
+    }, 2500);
     
 	var getSounds = function() {
 		console.log('getSounds called');
@@ -15,8 +19,6 @@ angular.module('recorder.controllers', [])
 	}
 
 	$scope.$on('$ionicView.enter', function(){
-        console.log("From HomeController: " + window.localStorage.getItem('question'));
-        $rootScope.question = window.localStorage.getItem('question');
 		console.log('enter');
 		getSounds();
 	});
