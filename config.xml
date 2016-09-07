@@ -45,7 +45,7 @@
     <plugin name="cordova-plugin-media" spec="~2.2.0" />
     <plugin name="cordova-plugin-dialogs" spec="~1.2.1" />
     <plugin name="cordova-plugin-customurlscheme" source="npm">
-        <param name="URL_SCHEME" value="hmhiosrecorder" />
+    <param name="URL_SCHEME" value="hmhiosrecorder" />
     </plugin>
     
     <platform name="ios">

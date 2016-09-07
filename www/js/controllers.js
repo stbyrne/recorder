@@ -1,12 +1,10 @@
 angular.module('recorder.controllers', [])
 
-.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform, $window) {
+.controller('HomeCtrl', function($scope, $state, $rootScope, Sounds, $ionicPlatform) {
     
-    $rootScope.question = {
-        stimulus: 'Question'
-    }
     
-    $rootScope.question.stimulus = window.localStorage['question'];
+    $rootScope.question = 'Loading question...';
+    
     
 	var getSounds = function() {
 		console.log('getSounds called');
@@ -17,6 +15,8 @@ angular.module('recorder.controllers', [])
 	}
 
 	$scope.$on('$ionicView.enter', function(){
+        console.log("From HomeController: " + window.localStorage.getItem('question'));
+        $rootScope.question = window.localStorage.getItem('question');
 		console.log('enter');
 		getSounds();
 	});
@@ -42,16 +42,17 @@ angular.module('recorder.controllers', [])
 		});
 	}
     
+    
     $scope.confirm = function() {
-		navigator.notification.confirm('Are you sure you want to submit?', null, 'Confim Submit', ['Confirm', 'Cancel']);	
+		navigator.notification.confirm('Are you sure you want to submit?', null, 'Confirm Submit', ['Confirm', 'Cancel']);	
 	}
 	
-	/*$scope.cordova = {loaded:false};
+	$scope.cordova = {loaded:false};
 	$ionicPlatform.ready(function() {
 		$scope.$apply(function() {
 			$scope.cordova.loaded = true;
 		});
-	});*/
+	});
 		 
 })
 .controller('RecordCtrl', function($scope, Sounds, $state, $ionicHistory) {

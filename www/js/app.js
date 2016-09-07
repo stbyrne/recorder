@@ -1,6 +1,8 @@
 var handleOpenURL = function(url) {
 
     console.log("App Launched Via Custom URL");
+    window.localStorage.removeItem('question');
+    console.log("Local storage cleared");
 
     var holder = url.split("="),
          strArray = holder[1].split("_"),
@@ -10,11 +12,13 @@ var handleOpenURL = function(url) {
 
     if (le > 1) {
         tempQuestion = strArray.slice(0, le).join(" ");
-        window.localStorage['question'] = tempQuestion;
-        console.log("Local Storage: " + window.localStorage['question']);
+        console.log("Temp: " + tempQuestion);
+        window.localStorage.setItem('question', tempQuestion);
+        console.log(window.localStorage.getItem('question'));
     }
 }
 
+/*window.localStorage.setItem('question', 'Question Placeholder')*/
 
 angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'])
 
@@ -32,8 +36,10 @@ angular.module('recorder', ['ionic', 'recorder.controllers', 'recorder.services'
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
 
+
+.config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
+    
   $stateProvider
 
   .state('home', {
